@@ -19,14 +19,16 @@ document.getElementById("generate-btn").addEventListener("click", (e) => {
     setTimeout(() => {
         try {
             qrcode = new QRCode("qr", {
-                text: link,
                 width: 512,
                 height: 512,
                 colorDark: "#000000",
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
+
+            qrcode.makeCode(link);
         } catch (err) {
+            console.error(err);
             const toast = bootstrap.Toast.getOrCreateInstance(document.getElementById("error-toast"));
             document.querySelector("#error-toast .toast-body").innerHTML = "Um erro inesperado ocorreu ao processar o link informado, tente novamente";
             button.innerHTML = `Gerar`;
