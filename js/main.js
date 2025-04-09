@@ -44,6 +44,7 @@ function downloadImage() {
             link.href = URL.createObjectURL(blob);
             link.download = 'qrcode.png';
             link.type = 'image/png';
+            link.target = '_blank';
             document.body.appendChild(link);
 
             const clickEvent = new MouseEvent('click', {
