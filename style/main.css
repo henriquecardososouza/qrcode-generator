@@ -13,6 +13,21 @@ main {
     object-fit: contain;
 }
 
+#qr {
+    max-width: 128px;
+    max-height: 128px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    #qr {
+        max-width: 70vw;
+        max-height: 70vw;
+        margin: 1rem auto;
+    }
+}
+
+
 .loader {
     width: 20px;
     height: 20px;
