@@ -35,15 +35,20 @@ document.getElementById("generate-btn").addEventListener("click", (e) => {
 function downloadImage(button) {
     button.innerHTML = `Downloading<span class="loader ms-2"></span>`;
     button.disabled = true;
-    const img = document.querySelector('#qr img');
+    // const img = document.querySelector('#qr img');
 
-    fetch(img.src)
-        .then(response => response.blob())
-        .then(blob => {
-            window.saveAs(blob, 'qr-code.png');
-        });
+    document.querySelector("#qr canvas").toBlob(function(blob) {
+        window.saveAs(blob, "qrcode.png");
+    });
+
+    // fetch(img.src)
+    //     .then(response => response.blob())
+    //     .then(blob => {
+    //         window.saveAs(blob, 'qr-code.png');
+    //     });
 
     button.innerHTML = `Download`;
+    button.disabled = false;
 
     /*domtoimage.toBlob()
         .then(function (blob) {
