@@ -19,7 +19,7 @@
 
             <div class="mb-3 p-1 d-grid align-items-center justify-content-center d-none">
                 <div class="border mx-auto p-1" id="qr" style="max-width: 128px; max-height: 128px; overflow: hidden;"></div>
-                <button class="btn btn-success mt-4 w-100 py-2 text-center" onclick="downloadImage()">Download</button>
+                <button class="btn btn-success mt-4 w-100 py-2 text-center" onclick="downloadImage(this)">Download</button>
             </div>
 
             <button class="btn btn-primary w-100 py-2 d-flex align-items-center" id="generate-btn">Gerar</button>
@@ -36,7 +36,9 @@
             <div class="toast-body"></div>
         </div>
     </div>
-    
+
+    <script src="/js/lib/dom-to-image.min.js"></script>
+    <script src="/js/lib/FileSaver.min.js"></script>
     <script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
