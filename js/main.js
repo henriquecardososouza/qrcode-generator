@@ -35,13 +35,22 @@ document.getElementById("generate-btn").addEventListener("click", (e) => {
 function downloadImage() {
     const image = document.querySelector('#qr img');
     const link = document.createElement('a');
+    link.style.display = 'none';
     
     fetch(image.src)
         .then(response => response.blob())
         .then(blob => {
             link.href = URL.createObjectURL(blob);
             link.download = 'qrcode.png';
-            link.click();
+            document.body.appendChild(link);
+
+            const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            });
+            link.dispatchEvent(clickEvent);
+
             setTimeout(() => URL.revokeObjectURL(link.href), 2000);
         });
 }
