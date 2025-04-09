@@ -36,12 +36,14 @@ function downloadImage() {
     const image = document.querySelector('#qr img');
     const link = document.createElement('a');
     link.style.display = 'none';
+    link.rel = 'noopener noreferrer';
     
     fetch(image.src)
         .then(response => response.blob())
         .then(blob => {
             link.href = URL.createObjectURL(blob);
             link.download = 'qrcode.png';
+            link.type = 'image/png';
             document.body.appendChild(link);
 
             const clickEvent = new MouseEvent('click', {
