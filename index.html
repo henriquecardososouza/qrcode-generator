@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr code generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="/style/main.css" rel="stylesheet">
+</head>
+<body data-bs-theme="dark" class="d-flex align-items-center py-4 bg-body-tertiary">
+    <main class="w-100 m-auto">
+        <div>
+            <h1 class="h3 mb-3 fw-normal">Gerador de QR Code</h1>
+        
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="link" placeholder="https://www.google.com">
+                <label for="link">Link</label>
+            </div>
+
+            <div class="mb-3 p-1 d-grid align-items-center justify-content-center d-none">
+                <div class="border mx-auto p-1" id="qr" style="max-width: 128px; max-height: 128px; overflow: hidden;"></div>
+                <button class="btn btn-success mt-4 w-100 py-2 text-center" onclick="downloadImage()">Download</button>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2 d-flex align-items-center" id="generate-btn">Gerar</button>
+            <p class="mt-5 mb-3 text-body-secondary text-end">© <a href="https://github.com/henriquecardososouza">Henrique</a></p>
+        </div>
+    </main>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="error-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto text-danger">Erro ao gerar o QR Code</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body"></div>
+        </div>
+    </div>
+    
+    <script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
