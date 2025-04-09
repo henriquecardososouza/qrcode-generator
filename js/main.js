@@ -17,14 +17,23 @@ document.getElementById("generate-btn").addEventListener("click", (e) => {
     document.getElementById("qr").innerHTML = "";
 
     setTimeout(() => {
-        qrcode = new QRCode("qr", {
-            text: link,
-            width: 512,
-            height: 512,
-            colorDark : "#000000",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
+        try {
+            qrcode = new QRCode("qr", {
+                text: link,
+                width: 512,
+                height: 512,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        } catch (err) {
+            const toast = bootstrap.Toast.getOrCreateInstance(document.getElementById("error-toast"));
+            document.querySelector("#error-toast .toast-body").innerHTML = "Um erro inesperado ocorreu ao processar o link informado, tente novamente";
+            button.innerHTML = `Gerar`;
+            button.disabled = false;
+            toast.show();
+            return;
+        }
 
         document.getElementById("qr").parentElement.classList.remove("d-none");
         button.innerHTML = `Gerar`;
